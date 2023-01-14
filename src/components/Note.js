@@ -8,7 +8,16 @@ const Note = ({id,text,date, handleDeleteNote}) => {
     const handleChange = (e) => {
         setValue(e.target.value)
         
-        localStorage.setItem('notes-data', e.target.value)
+        let notesList = JSON.parse( localStorage.getItem("notes-data") )
+        
+
+        notesList.forEach(nota => {
+            if(nota.id == id){
+                nota.text = e.target.value
+            }
+        });
+
+        localStorage.setItem("notes-data", JSON.stringify( notesList ))
     }
 
       useEffect(() => {
@@ -19,7 +28,7 @@ const Note = ({id,text,date, handleDeleteNote}) => {
         <textarea className = "t1" defaultValue={text} onChange = {handleChange}></textarea>
         <div className = "note-footer">
             <small>{date}</small>
-            <MdDeleteForever onClick = {() => handleDeleteNote(id)} className = "delete-icon" size = "1.3em"/>
+            <MdDeleteForever onClick = {() => handleDeleteNote(id,text)} className = "delete-icon" size = "1.3em"/>
         </div>
 
     </div>

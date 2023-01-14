@@ -38,21 +38,15 @@ const App = () => {
     setNotes(newNotes)
   }
 
-  const deleteNote = (id) => {
+  const deleteNote = (id,text) => {
     const newNotes = notes.filter((note)=> note.id !== id)
     setNotes(newNotes)
   }
 
 
-  const updateNote = (text) => {
-    const upNote = { text: text,}
-    const refNote = {upNote}
-    setNotes(refNote)
-  }
-
-    useEffect(() => {
+  useEffect(() => {
     const savedNotes = JSON.parse(
-      localStorage.getItem('notes-data'))
+    localStorage.getItem('notes-data'))
     
     if(savedNotes){
       setNotes(savedNotes)
