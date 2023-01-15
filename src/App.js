@@ -2,6 +2,8 @@ import {useState, useEffect} from 'react'
 import {nanoid} from 'nanoid'
 import NotesList from './components/NotesList'
 import Header from './components/Header'
+import Background from './components/Background'
+
 
 const App = () => {
   const [notes, setNotes] = useState([
@@ -63,9 +65,9 @@ const App = () => {
 
   return(
     <div className = "container">
-      <Header/>
-      <NotesList notes = {notes} handleAddNote = {addNote} handleDeleteNote = {deleteNote}/>
-      
+      <Background/>
+        <Header/>
+        <NotesList notes = {notes} handleAddNote = {addNote} handleDeleteNote = {deleteNote}/>
     </div>
   )
 }
