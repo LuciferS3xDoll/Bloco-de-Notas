@@ -7,26 +7,6 @@ import Background from './components/Background'
 
 const App = () => {
   const [notes, setNotes] = useState([
-  {
-    id : nanoid(),
-    text : "First Note omg!!!!",
-    date : "01/01/2023",
-  },
-  {
-    id : nanoid(),
-    text : "Second Note omg!!!!",
-    date : "02/01/2023",
-  },
-  {
-    id : nanoid(),
-    text : "Third Note omg!!!!",
-    date : "03/01/2023",
-  },
-  {
-    id : nanoid(),
-    text : "Fourth Note omg!!!!",
-    date : "04/01/2023",
-  },
   
   ])
 
@@ -40,9 +20,10 @@ const App = () => {
     setNotes(newNotes)
   }
 
-  const deleteNote = (id,text) => {
+  const deleteNote = (id) => {
     const newNotes = notes.filter((note)=> note.id !== id)
     setNotes(newNotes)
+    window.location.reload()
   }
 
 
@@ -65,7 +46,7 @@ const App = () => {
 
   return(
     <div className = "container">
-      <Background/>
+        <Background/>
         <Header/>
         <NotesList notes = {notes} handleAddNote = {addNote} handleDeleteNote = {deleteNote}/>
     </div>
