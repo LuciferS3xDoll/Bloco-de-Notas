@@ -25,7 +25,7 @@ const Note = ({id,text,date, handleDeleteNote}) => {
       }, [])
 
     return( <div className = 'note'>
-        <textarea className = "t1" defaultValue={text} onChange = {handleChange}></textarea>
+        <textarea className = "t1" defaultValue={text} rows = "8" onChange = {handleChange}></textarea>
         <div className = "note-footer">
             <small>{date}</small>
             <MdDeleteForever onClick = {() => handleDeleteNote(id,text)} className = "delete-icon" size = "1.3em"/>
